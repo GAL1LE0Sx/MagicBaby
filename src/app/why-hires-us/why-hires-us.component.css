@@ -1,0 +1,9 @@
+/* Estilos locais da página "Why Hires Us" */
+h1, h2, h4, p {
+  font-family: 'Helvetica', sans-serif;
+}
+
+[data-feather] {
+  display: inline-block;
+  vertical-align: middle;
+}

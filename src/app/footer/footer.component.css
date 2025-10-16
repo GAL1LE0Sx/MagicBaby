@@ -1,0 +1,14 @@
+.footer {
+  /* Mantém o footer sempre centralizado e responsivo */
+}
+
+.footer i {
+  vertical-align: middle;
+}
+
+/* Pequeno ajuste para telas menores */
+@media (max-width: 768px) {
+  .footer .grid {
+    text-align: center;
+  }
+}

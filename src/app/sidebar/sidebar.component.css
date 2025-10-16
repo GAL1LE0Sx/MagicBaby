@@ -1,0 +1,27 @@
+.sidebar-item {
+  transition: color 0.2s ease-in-out;
+}
+.sidebar-item:hover {
+  color: #ec4899; /* cor pink do hover */
+}
+
+/* Ajustes de scroll e estilo básico */
+:host {
+  display: block;
+}
+
+/* Configurável: defina estes valores globalmente se seu header/footer tiverem alturas diferentes */
+:host {
+  --sidebar-header-height: 64px;
+  --sidebar-footer-height: 64px;
+}
+
+/* Make the nav fill the vertical space between header and footer. Use CSS variables so you can
+   tweak header/footer heights globally if needed. Falls back to 64px each. */
+nav {
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: sticky;
+  top: var(--sidebar-header-height, 64px);
+  height: calc(100vh - var(--sidebar-header-height, 64px) - var(--sidebar-footer-height, 64px));
+}

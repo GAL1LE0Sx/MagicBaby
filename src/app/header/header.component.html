@@ -1,0 +1,19 @@
+
+
+<header class="bg-white shadow-md p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold text-pink-500 cursor-pointer" (click)="redirect('home')">MagicBaby</h1>
+  <nav class="space-x-4">
+    <a (click)="redirect('home')" class="text-gray-700 font-medium hover:text-pink-500 cursor-pointer">
+      <i data-feather="home" class="inline mr-1"></i> Início
+    </a>
+    <a (click)="redirect('about')" class="text-gray-700 font-medium hover:text-pink-500 cursor-pointer">
+      <i data-feather="info" class="inline mr-1"></i> Sobre
+    </a>
+    <a (click)="redirect('commitment')" class="text-gray-700 font-medium hover:text-pink-500 cursor-pointer">
+      <i data-feather="package" class="inline mr-1"></i> Nosso Compromisso
+    </a>
+    <a (click)="redirect('why-hires-us')" class="text-gray-700 font-medium hover:text-pink-500 cursor-pointer">
+      <i data-feather="book" class="inline mr-1"></i> Por que confiar em nós
+    </a>
+  </nav>
+</header>

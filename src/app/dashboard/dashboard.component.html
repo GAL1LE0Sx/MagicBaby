@@ -1,0 +1,61 @@
+<div class="flex w-full min-h-screen bg-gray-50">
+
+  <!-- Menu do Dashboard Lateral -->
+  <nav class="w-64 bg-white shadow-md min-h-screen p-6 flex flex-col justify-between sticky top-0">
+    <div>
+      <h2 class="text-xl font-bold text-pink-500 mb-6">MagicBaby</h2>
+      <ul class="space-y-2">
+        <li>
+          <a routerLink="/dashboard/cliente-area" routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+             class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+            <i data-feather="home" class="inline mr-2"></i> Dashboard
+          </a>
+        </li>
+        
+        <li>
+          <a routerLink="/dashboard/informacoes" routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+             class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+            <i data-feather="user" class="inline mr-2"></i> Informações
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/compras" routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+             class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+            <i data-feather="shopping-bag" class="inline mr-2"></i> Minhas Compras
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/produtos" routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+             class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+            <i data-feather="package" class="inline mr-2"></i> Meus Produtos
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/area-cliente" routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+             class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+            <i data-feather="user" class="inline mr-2"></i> Sua Conta
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/suporte" routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+             class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+            <i data-feather="help-circle" class="inline mr-2"></i> Suporte
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Botão Sair no final do menu -->
+    <div class="mt-8">
+      <a routerLink="/home"
+         class="block py-3 px-4 rounded-lg text-white bg-gradient-to-r from-[rgb(220,150,180)] to-[rgb(150,200,240)] hover:from-[rgb(200,120,160)] hover:to-[rgb(120,180,220)] transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+        <i data-feather="log-out" class="inline mr-2 text-white"></i> Sair
+      </a>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-1 p-8 overflow-y-auto">
+    <router-outlet></router-outlet>
+  </main>
+</div>

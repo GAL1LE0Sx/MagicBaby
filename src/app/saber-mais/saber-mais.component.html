@@ -1,0 +1,91 @@
+<app-header></app-header>
+
+<main class="bg-gradient-to-b from-white to-pink-50 min-h-screen">
+  <!-- Hero -->
+  <section class="text-center py-24 px-6 relative overflow-hidden">
+    <h1 class="text-5xl font-bold text-gray-800 mb-6 animate-fadeInDown">
+      Conheça a MagicBaby de uma forma inovadora
+    </h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12 animate-fadeInUp">
+      Uma jornada visual, interativa e divertida para guiar você em cada etapa da gravidez e primeiros meses do bebê.
+    </p>
+    <a routerLink="/cadastro" class="inline-block bg-pink-500 text-white py-4 px-12 rounded-xl shadow-lg hover:bg-pink-600 transition-all animate-bounce">
+      Comece Agora
+    </a>
+
+    <!-- Ícones flutuantes centrais -->
+    <div class="flex justify-center gap-16 mt-20 animate-fadeInUp">
+      <div class="flex flex-col items-center">
+        <i data-feather="search" class="w-16 h-16 text-pink-500 mb-4"></i>
+        <span class="text-xl font-semibold">Descoberta</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <i data-feather="heart" class="w-16 h-16 text-blue-500 mb-4"></i>
+        <span class="text-xl font-semibold">Gravidez</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <i data-feather="headphones" class="w-16 h-16 text-green-500 mb-4"></i>
+        <span class="text-xl font-semibold">Suporte</span>
+      </div>
+    </div>
+
+    <!-- Ícones flutuantes extras -->
+    <i data-feather="star" class="absolute top-10 left-10 w-6 h-6 text-yellow-400 animate-float"></i>
+    <i data-feather="smile" class="absolute bottom-10 right-20 w-6 h-6 text-green-400 animate-float"></i>
+    <i data-feather="heart" class="absolute top-1/2 left-1/4 w-6 h-6 text-red-400 animate-float"></i>
+  </section>
+
+  <!-- Linha do tempo -->
+<section class="container mx-auto px-6 py-20">
+  <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">Linha do Tempo da Jornada</h2>
+
+  <div class="relative flex flex-col items-center">
+    <div class="w-1 bg-gray-200 absolute h-full top-0 left-1/2 transform -translate-x-1/2"></div>
+
+    <div *ngFor="let step of timelineSteps; let i = index" class="mb-16 relative w-full max-w-3xl flex flex-col items-center animate-fadeIn">
+      <!-- Bolinha -->
+      <div [ngClass]="step.cor" class="w-12 h-12 flex items-center justify-center rounded-full shadow-lg z-10">
+        <i [attr.data-feather]="step.icone" class="w-6 h-6 text-gray-700"></i>
+      </div>
+      <!-- Texto abaixo da bolinha -->
+      <h3 class="text-xl font-semibold text-center mt-4">{{step.etapa}}</h3>
+      <p class="text-gray-600 text-center mt-2">{{step.descricao}}</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Dicas Rápidas -->
+  <section class="bg-white py-20 px-6">
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">Dicas Rápidas</h2>
+    <div class="flex overflow-x-auto space-x-6 pb-6">
+      <div *ngFor="let dica of dicasRapidas" [ngClass]="dica.cor" class="min-w-[250px] p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-2 flex-shrink-0 animate-fadeIn">
+        <div class="flex items-center mb-4">
+          <i [attr.data-feather]="dica.icone" class="w-6 h-6 text-gray-700 mr-2"></i>
+          <h4 class="font-semibold">{{dica.titulo}}</h4>
+        </div>
+        <p class="text-gray-600">{{dica.descricao}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="bg-pink-50 py-20 px-6">
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">O que os pais dizem</h2>
+    <div class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
+      <div *ngFor="let d of depoimentos" class="bg-white p-6 rounded-xl shadow relative flex-1 animate-fadeIn">
+        <i [attr.data-feather]="d.icone" class="absolute -top-4 -left-4 w-6 h-6 text-pink-400"></i>
+        <p class="text-gray-700 italic">"{{d.texto}}"</p>
+        <p class="mt-4 font-semibold text-gray-800">- {{d.nome}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="bg-gradient-to-r from-pink-500 to-pink-400 py-24 text-center text-white">
+    <h2 class="text-4xl font-bold mb-6">Pronto para viver a experiência completa?</h2>
+    <a routerLink="/cadastro" class="inline-block bg-white text-pink-500 font-semibold py-4 px-12 rounded-xl shadow-lg hover:bg-gray-100 transition-all">
+      Inscreva-se agora
+    </a>
+  </section>
+</main>

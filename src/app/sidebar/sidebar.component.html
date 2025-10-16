@@ -1,0 +1,61 @@
+<nav class="w-64 h-full bg-gray-50 flex flex-col pt-6 px-6 pb-0 border-r border-gray-200">
+  <!-- Topo e menu principal -->
+  <div class="flex flex-col h-full">
+    <!-- Título -->
+    <h2 class="text-xl font-bold text-pink-500 mb-6">MagicBaby</h2>
+
+    <!-- Menu distribuído verticalmente -->
+    <div role="menu" class="flex flex-col flex-1 space-y-2">
+      <a 
+        routerLink="/dashboard" 
+        routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+        class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200"
+      >
+        <i data-feather="home" class="inline mr-2"></i> Dashboard
+      </a>
+
+      <a 
+        routerLink="/dashboard/informacoes" 
+        routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+        class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200"
+      >
+        <i data-feather="user" class="inline mr-2"></i> Área do Cliente
+      </a>
+
+      <a 
+        routerLink="/dashboard/compras" 
+        routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+        class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200"
+      >
+        <i data-feather="shopping-bag" class="inline mr-2"></i> Minhas Compras
+      </a>
+
+      <a 
+        routerLink="/dashboard/produtos" 
+        routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+        class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200"
+      >
+        <i data-feather="package" class="inline mr-2"></i> Meus Produtos
+      </a>
+
+      <a 
+        routerLink="/dashboard/suporte" 
+        routerLinkActive="text-pink-500 font-semibold bg-pink-50"
+        class="block py-2 px-4 rounded-lg text-gray-700 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200"
+      >
+        <i data-feather="help-circle" class="inline mr-2"></i> Suporte
+      </a>
+    </div>
+  </div>
+
+  <!-- Botão Sair fixo no final -->
+  <div class="mt-auto mb-6">
+    <a 
+      routerLink="/home"
+      class="block py-3 px-4 rounded-lg text-white bg-gradient-to-r from-[rgb(220,150,180)] to-[rgb(150,200,240)]
+             hover:from-[rgb(200,120,160)] hover:to-[rgb(120,180,220)] transition-transform duration-300 transform hover:scale-105 text-center"
+    >
+      <i data-feather="log-out" class="inline mr-2 text-white"></i> Sair
+    </a>
+  </div>
+</nav>

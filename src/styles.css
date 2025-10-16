@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quando quisermos que o sidebar apareça acima do conteúdo (top), usamos esta classe no template */
+.page-with-sidebar-top {
+	display: flex;
+	flex-direction: column;
+}
+
+.page-with-sidebar-top app-sidebar {
+	position: relative; /* remove absolute from sidebar internal layout if any */
+	width: 100%;
+	z-index: 20;
+}
+
+.page-with-sidebar-top main {
+	margin-top: 1rem;
+}
+
+/* Em telas largas, se quiser manter sidebar no topo e conteúdo ao lado, comente esta regra ou ajuste */
+@media (min-width: 1024px) {
+	.page-with-sidebar-top {
+		/* Forçar sidebar no topo mesmo em desktops */
+		flex-direction: column;
+	}
+}
+
+
+/* styles.css (global) */
+
+/* define a cor de fundo do site inteira */
+:root {
+  --site-bg: #F9FAFB; /* equivalente ao Tailwind bg-gray-50 */
+}
+
+/* garantir que html/body/app-root ocupem altura e tenham fundo */
+html, body, app-root {
+  height: 100%;
+  background-color: var(--site-bg) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* classe utilitária para o layout principal (caso use) */
+.app-layout {
+  min-height: calc(100vh - 128px); /* ajuste header+footer se necessário */
+  background-color: var(--site-bg);
+}
+
+/* garante que qualquer elemento que herda fundo transparente mostre a cor do site */
+.bg-site {
+  background-color: var(--site-bg) !important;
+}
+
+/* evita que componentes internos forcem um fundo branco indesejado
+   (use com cautela: se um componente realmente precisa ser branco, mantenha bg-white localmente) */
+.app-layout * {
+  box-sizing: border-box;
+}
+
+/* Se o seu app-sidebar tem wrappers internos com bg-white,
+   você pode sobrescrever aqui (apenas se quiser que todo sidebar também seja cinza):
+.app-layout app-sidebar, 
+.app-layout app-sidebar * {
+  background: transparent !important;
+}
+*/

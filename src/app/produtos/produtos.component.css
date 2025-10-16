@@ -1,0 +1,115 @@
+/* Container principal */
+:host {
+  display: block;
+  width: 100%;
+  min-height: calc(100vh - 128px); /* Ajusta altura considerando header/footer */
+  background-color: #f9fafb; /* bg-gray-50 */
+}
+
+/* Cards de itens comprados e guias */
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* Títulos das seções */
+h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem; /* text-xl */
+}
+
+h2 i {
+  margin-right: 0.5rem;
+}
+
+/* Cards individuais de produtos */
+.grid > div {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid > div:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Imagem do produto */
+img {
+  border-radius: 0.5rem; /* rounded */
+  object-fit: cover;
+}
+
+/* Links de ação */
+a {
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Botões principais */
+button, .inline-block {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover, .inline-block:hover {
+  transform: translateY(-1px);
+}
+
+/* Mensagem de nenhum item */
+.text-center i {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsividade */
+@media screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .md\:col-span-2 {
+    grid-column: span 1 / span 1 !important;
+  }
+
+  .md\:col-span-3 {
+    grid-column: span 1 / span 1 !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  main {
+    padding: 1rem !important;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* text-2xl */
+  }
+
+  h2 {
+    font-size: 1.125rem; /* text-lg */
+  }
+
+  p, span, a {
+    font-size: 0.875rem; /* text-sm */
+  }
+
+  .w-20, .h-20 {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .h-40 {
+    height: 10rem;
+  }
+
+  .p-6 {
+    padding: 1rem;
+  }
+
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+}

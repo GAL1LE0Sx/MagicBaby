@@ -1,0 +1,207 @@
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #f9a8d4;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 3px;
+}
+
+.month-container {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.month-container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #f472b6;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left { left: 0; }
+.right { left: 50%; }
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #f8fafc;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #f8fafc;
+}
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #f8fafc;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #f8fafc transparent transparent;
+}
+
+.right::after {
+  left: -16px;
+}
+
+.month-content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::after { left: 31px; }
+  .month-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+  .month-container::before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+  .left::after, .right::after { left: 15px; }
+  .right { left: 0%; }
+}
+
+.expandable {
+  transition: all 0.3s ease;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.expandable.expanded {
+  max-height: 1000px;
+}
+
+.expand-button {
+  cursor: pointer;
+  color: #f472b6;
+  font-weight: 500;
+}
+
+/* Container geral */
+:host {
+  display: block;
+  width: 100%;
+  min-height: calc(100vh - 128px);
+  background-color: #f9fafb; /* bg-gray-50 */
+  padding: 0;
+  margin: 0;
+}
+
+/* Timeline alternada */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.month-container {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.month-container.left {
+  left: 0;
+}
+
+.month-container.right {
+  left: 50%;
+}
+
+.month-content {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+/* Conexão central do timeline */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #f472b6; /* pink-500 */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Botão expand/collapse */
+.expand-button {
+  color: #ec4899; /* pink-500 */
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.expand-button:hover {
+  color: #db2777; /* pink-600 */
+}
+
+/* Expandable content */
+.expandable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.expandable.expanded {
+  max-height: 1000px; /* grande valor para animação */
+}
+
+/* Responsividade */
+@media screen and (max-width: 1024px) {
+  .month-container {
+    width: 100%;
+    left: 0 !important;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline::after {
+    left: 8px; /* move o indicador para esquerda */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  main {
+    padding: 1rem;
+  }
+
+  .month-content {
+    padding: 1rem;
+  }
+
+  .expand-button {
+    font-size: 0.875rem; /* text-sm */
+  }
+}

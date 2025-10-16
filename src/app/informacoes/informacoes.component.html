@@ -1,0 +1,165 @@
+<div class="flex flex-1 min-h-[calc(100vh-128px)] bg-gray-50"> <!-- Ajuste a altura conforme o header+footer -->
+  <!-- Sidebar fixo e ocupando toda a altura -->
+
+
+  <!-- Conteúdo principal -->
+  <main class="flex-1 p-8 overflow-y-auto">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">Guia da Gravidez</h1>
+    <p class="text-gray-600 mb-8">Desenvolvimento mês a mês e dicas de cuidados</p>
+
+    <div class="timeline">
+      <!-- Mês 1 -->
+      <div class="month-container left">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 1</h2>
+          <div class="expandable" id="mes1">
+            <p class="text-gray-700 mb-3">O bebê tem o tamanho de uma semente de papoula! O óvulo fertilizado se implanta no útero.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Você ainda pode não notar sintomas</li>
+              <li>Comece a tomar vitaminas pré-natais com ácido fólico</li>
+              <li>Evite álcool, fumo e certos medicamentos</li>
+            </ul>
+            <p class="text-gray-700">Agende sua primeira consulta pré-natal com seu profissional de saúde.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes1')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 2 -->
+      <div class="month-container right">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 2</h2>
+          <div class="expandable" id="mes2">
+            <p class="text-gray-700 mb-3">Agora do tamanho de uma framboesa, os principais órgãos do bebê começam a se desenvolver.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Podem surgir enjoos matinais</li>
+              <li>Seios podem ficar sensíveis</li>
+              <li>Fadiga é comum</li>
+            </ul>
+            <p class="text-gray-700">Continue com vitaminas pré-natais e mantenha-se hidratada.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes2')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 3 -->
+      <div class="month-container left">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 3</h2>
+          <div class="expandable" id="mes3">
+            <p class="text-gray-700 mb-3">Com o tamanho aproximado de uma ameixa, os dedos das mãos e pés do bebê estão se formando.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Enjoo matinal pode começar a melhorar</li>
+              <li>Barriga pode começar a aparecer</li>
+              <li>Urinar com mais frequência continua</li>
+            </ul>
+            <p class="text-gray-700">Fim do primeiro trimestre — o risco de aborto cai significativamente.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes3')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 4 -->
+      <div class="month-container right">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 4</h2>
+          <div class="expandable" id="mes4">
+            <p class="text-gray-700 mb-3">O bebê tem cerca de 12 cm e os movimentos começam a ser percebidos.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Você pode sentir os primeiros movimentos do bebê</li>
+              <li>Os sintomas de enjoo matinal diminuem</li>
+              <li>Continuação do crescimento da barriga</li>
+            </ul>
+            <p class="text-gray-700">Agende exames de rotina e mantenha hábitos saudáveis.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes4')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 5 -->
+      <div class="month-container left">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 5</h2>
+          <div class="expandable" id="mes5">
+            <p class="text-gray-700 mb-3">O bebê cresce rapidamente e a mãe pode notar mudanças no corpo.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Movimentos do bebê ficam mais perceptíveis</li>
+              <li>A barriga aumenta visivelmente</li>
+              <li>Pode ocorrer coceira na pele devido ao estiramento</li>
+            </ul>
+            <p class="text-gray-700">Continue cuidando da alimentação e exercícios leves.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes5')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 6 -->
+      <div class="month-container right">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 6</h2>
+          <div class="expandable" id="mes6">
+            <p class="text-gray-700 mb-3">O bebê começa a ouvir sons e a desenvolver características faciais.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Movimentos do bebê ficam mais fortes</li>
+              <li>É possível sentir pontapés</li>
+              <li>Fique atenta a sinais de desconforto</li>
+            </ul>
+            <p class="text-gray-700">Continue exames de rotina e mantenha hidratação adequada.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes6')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 7 -->
+      <div class="month-container left">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 7</h2>
+          <div class="expandable" id="mes7">
+            <p class="text-gray-700 mb-3">O bebê está quase completamente formado e se movimenta bastante.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Os movimentos são frequentes e visíveis</li>
+              <li>O abdômen da mãe cresce bastante</li>
+              <li>Pode haver desconforto nas costas e pernas</li>
+            </ul>
+            <p class="text-gray-700">Prepare o ambiente do bebê e continue com acompanhamento médico.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes7')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 8 -->
+      <div class="month-container right">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 8</h2>
+          <div class="expandable" id="mes8">
+            <p class="text-gray-700 mb-3">O bebê continua crescendo, preparando-se para o nascimento.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Movimentos podem ser fortes e constantes</li>
+              <li>Pressão e desconforto na região pélvica</li>
+              <li>Prepare a mala para a maternidade</li>
+            </ul>
+            <p class="text-gray-700">Acompanhe sinais de parto prematuro e mantenha consultas regulares.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes8')">Leia Mais ▼</div>
+        </div>
+      </div>
+
+      <!-- Mês 9 -->
+      <div class="month-container left">
+        <div class="month-content">
+          <h2 class="text-xl font-semibold text-pink-500 mb-2">Mês 9</h2>
+          <div class="expandable" id="mes9">
+            <p class="text-gray-700 mb-3">O bebê está totalmente desenvolvido e pronto para nascer.</p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+              <li>Movimentos diminuem por falta de espaço</li>
+              <li>Preparo para o parto é essencial</li>
+              <li>Continue acompanhamento médico e alimentação balanceada</li>
+            </ul>
+            <p class="text-gray-700">Mantenha calma e siga as orientações do profissional de saúde.</p>
+          </div>
+          <div class="expand-button mt-2" (click)="toggleExpand('mes9')">Leia Mais ▼</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

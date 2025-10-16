@@ -1,0 +1,108 @@
+<main [ngClass]="temaEscuro ? 'bg-gray-900 text-white' : 'bg-gradient-to-b from-white to-pink-50 text-gray-800'"
+      class="min-h-screen flex flex-col items-center py-16 px-6 transition-colors duration-500 relative">
+
+  <!-- Popup -->
+  <div *ngIf="mostrarPopup"
+       [ngClass]="temaEscuro ? 'bg-gray-800 text-white border-gray-700' : 'bg-white text-gray-800 border-gray-200'"
+       class="fixed top-6 right-6 z-50 shadow-lg px-6 py-3 rounded-lg font-medium animate-fadeIn">
+    {{ mensagem }}
+  </div>
+
+  <!-- Boas-vindas -->
+  <div *ngIf="nome && nomeFilho" class="text-center mb-10 animate-fadeIn">
+    <h2 class="text-3xl font-bold">
+      Olá, {{ nome }} 👋
+    </h2>
+    <p [ngClass]="temaEscuro ? 'text-gray-300' : 'text-gray-600'" class="text-lg">
+      Que bom ver você aqui! Como está {{ nomeFilho }} hoje?
+    </p>
+  </div>
+
+  <!-- Card principal -->
+  <div class="rounded-2xl shadow-lg p-10 w-full max-w-2xl relative"
+       [ngClass]="temaEscuro ? 'bg-gray-800' : 'bg-white'">
+       
+    <!-- Botão de tema -->
+    <button (click)="alternarTema()"
+      class="absolute top-6 right-6 bg-pink-500 text-white p-2 rounded-full hover:bg-pink-600 transition">
+      <i [attr.data-feather]="temaEscuro ? 'sun' : 'moon'" class="w-5 h-5"></i>
+    </button>
+
+    <h2 class="text-3xl font-bold text-center mb-8">Área do Cliente</h2>
+
+    <!-- Foto -->
+    <div class="flex flex-col items-center mb-10">
+      <div class="relative">
+        <img *ngIf="fotoPerfil; else semFoto" [src]="fotoPerfil"
+          alt="Foto de Perfil"
+          class="w-32 h-32 rounded-full object-cover border-4 border-pink-400 shadow-md" />
+        <ng-template #semFoto>
+          <div class="w-32 h-32 rounded-full bg-pink-100 flex items-center justify-center border-4 border-pink-300">
+            <i data-feather="user" class="w-10 h-10 text-pink-400"></i>
+          </div>
+        </ng-template>
+
+        <label for="foto" class="absolute bottom-0 right-0 bg-pink-500 p-2 rounded-full cursor-pointer hover:bg-pink-600 transition">
+          <i data-feather="camera" class="w-4 h-4 text-white"></i>
+        </label>
+        <input id="foto" type="file" (change)="alterarFoto($event)" class="hidden" accept="image/*">
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block font-semibold mb-2">Nome</label>
+        <input type="text" [(ngModel)]="nome" name="nome"
+               [ngClass]="temaEscuro ? 'bg-gray-700 text-white placeholder-gray-300 border-gray-600' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'"
+               class="w-full rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-2">Sobrenome</label>
+        <input type="text" [(ngModel)]="sobrenome" name="sobrenome"
+               [ngClass]="temaEscuro ? 'bg-gray-700 text-white placeholder-gray-300 border-gray-600' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'"
+               class="w-full rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-2">Nome do Filho(a)</label>
+        <input type="text" [(ngModel)]="nomeFilho" name="nomeFilho"
+               [ngClass]="temaEscuro ? 'bg-gray-700 text-white placeholder-gray-300 border-gray-600' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'"
+               class="w-full rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-2">Sexo do Filho(a)</label>
+        <select [(ngModel)]="sexoFilho" name="sexoFilho"
+                [ngClass]="temaEscuro ? 'bg-gray-700 text-white border-gray-600' : 'bg-gray-100 text-gray-800 border-gray-300'"
+                class="w-full rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+          <option value="" disabled>Selecione</option>
+          <option value="menino">Menino</option>
+          <option value="menina">Menina</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-2">Data de Nascimento</label>
+        <input type="date" [(ngModel)]="dataNascimentoFilho" (change)="calcularIdade()" name="dataNascimentoFilho"
+               [ngClass]="temaEscuro ? 'bg-gray-700 text-white border-gray-600' : 'bg-gray-100 text-gray-800 border-gray-300'"
+               class="w-full rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400">
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-2">Idade</label>
+        <input type="number" [(ngModel)]="idadeFilho" name="idadeFilho" readonly
+               [ngClass]="temaEscuro ? 'bg-gray-700 text-white border-gray-600' : 'bg-gray-100 text-gray-800 border-gray-300'"
+               class="w-full rounded-lg p-3">
+      </div>
+    </form>
+
+    <div class="flex justify-center mt-10">
+      <button (click)="salvarAlteracoes()"
+        class="bg-pink-500 text-white py-3 px-10 rounded-lg font-semibold hover:bg-pink-600 transition shadow-md">
+        <i data-feather="save" class="inline w-5 h-5 mr-2"></i> Salvar Alterações
+      </button>
+    </div>
+  </div>
+</main>

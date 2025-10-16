@@ -1,0 +1,95 @@
+<div class="flex w-full min-h-[calc(100vh-128px)] bg-gray-50">
+
+  <!-- Pop-up de mensagem -->
+  <div *ngIf="mostrarPopup" 
+       class="fixed top-6 right-6 bg-pink-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 animate-slideIn">
+    {{ mensagem }}
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main class="flex-1 p-6 sm:p-8 overflow-y-auto h-full">
+
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
+      Itens essenciais para recém-nascidos
+    </h1>
+
+    <p class="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+      Tudo o que você precisa para os primeiros meses do seu bebê
+    </p>
+
+    <!-- Lista de produtos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div *ngFor="let produto of produtos" 
+           class="product-card bg-white rounded-xl overflow-hidden shadow-sm transform hover:scale-105 transition-transform duration-200 ease-in-out">
+        <img [src]="produto.imagem" [alt]="produto.nome" 
+             class="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover">
+        <div class="p-3 sm:p-4">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">{{ produto.nome }}</h3>
+          <p class="text-gray-600 mb-2 sm:mb-3 text-sm sm:text-base">{{ produto.descricao }}</p>
+          <div class="flex justify-between items-center mb-2 sm:mb-3">
+            <div>
+              <span class="text-sm text-gray-500">Opção:</span>
+              <select class="ml-2 border rounded p-1 text-xs sm:text-sm">
+                <option *ngFor="let op of produto.opcao">{{ op }}</option>
+              </select>
+            </div>
+            <span class="text-base sm:text-lg font-bold text-pink-500">
+              R$ {{ produto.preco | number:'1.2-2' }}
+            </span>
+          </div>
+          <button 
+            (click)="adicionarAoCarrinho(produto)"
+            class="w-full bg-pink-500 text-white py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg hover:bg-pink-600 text-sm sm:text-base transition-colors">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrinho -->
+    <div class="mt-8 sm:mt-10 bg-white rounded-xl shadow-sm p-4 sm:p-6">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-lg sm:text-xl font-semibold">Seu Carrinho</h2>
+      </div>
+
+      <!-- Lista de itens do carrinho -->
+      <div *ngIf="carrinho.length > 0; else vazio">
+        <div *ngFor="let item of carrinho" 
+             class="flex justify-between items-center border-b pb-2 sm:pb-3 mb-2 sm:mb-3">
+          <div>
+            <span class="text-gray-700 text-sm sm:text-base">{{ item.nome }}</span>
+            <p class="text-xs text-gray-500">R$ {{ item.preco | number:'1.2-2' }}</p>
+          </div>
+          <button 
+            (click)="removerDoCarrinho(item)"
+            class="flex items-center gap-1 text-red-500 hover:text-red-700 text-xs sm:text-sm font-medium transition-colors">
+            🗑️ <span>Remover</span>
+          </button>
+        </div>
+
+        <!-- Total -->
+        <div class="flex justify-between mb-2 sm:mb-3 border-t pt-2 sm:pt-3">
+          <span class="font-semibold text-sm sm:text-base">Total</span>
+          <span class="font-bold text-base sm:text-lg text-pink-600">R$ {{ getTotal() | number:'1.2-2' }}</span>
+        </div>
+
+        <!-- Botão Finalizar Compra -->
+        <button 
+                
+                class="w-full bg-pink-500 text-white py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg hover:bg-pink-600 text-sm sm:text-base transition-colors disabled:bg-gray-300"
+                [disabled]="carrinho.length === 0"
+                (click)="finalizarCompra()">
+                
+                Finalizar Compra
+        </button>
+
+      </div>
+
+      <!-- Carrinho vazio -->
+      <ng-template #vazio>
+        <p class="text-gray-500 text-sm sm:text-base">Seu carrinho está vazio.</p>
+      </ng-template>
+    </div>
+
+  </main>
+</div>

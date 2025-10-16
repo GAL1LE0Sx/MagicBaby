@@ -1,0 +1,20 @@
+/* Estilo do popup */
+.fixed {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animação de entrada */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s forwards;
+}
