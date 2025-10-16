@@ -18,42 +18,42 @@ export class CadastroComponent {
   confirmaSenha = '';
   mensagemErro = '';
   mensagemSucesso = '';
+  aceiteLGPD = false;
+  mostrarTermos = false; // ✅ Controla o popup de termos
 
   onSubmit(form: NgForm) {
     this.mensagemErro = '';
     this.mensagemSucesso = '';
 
-    // Validação do formulário
     if (!form.valid) {
       this.mensagemErro = 'Preencha todos os campos obrigatórios.';
       return;
     }
 
-    // Validação do e-mail
+    if (!this.aceiteLGPD) {
+      this.mensagemErro = 'É necessário aceitar os Termos de Uso e a Política de Privacidade.';
+      return;
+    }
+
     if (!this.validarEmail(this.email)) {
       this.mensagemErro = 'Digite um e-mail válido.';
       return;
     }
 
-    // Validação da senha
     if (this.senha.length < 6) {
       this.mensagemErro = 'A senha deve ter pelo menos 6 caracteres.';
       return;
     }
 
-    // Validação da confirmação
     if (this.senha !== this.confirmaSenha) {
       this.mensagemErro = 'As senhas não coincidem.';
       return;
     }
 
-    // Cadastro válido: mensagem de sucesso com pop-up
     this.mensagemSucesso = `Parabéns, ${this.nome}! Cadastro realizado com sucesso!`;
-
-    // Reseta o formulário
     form.resetForm();
+    this.aceiteLGPD = false;
 
-    // Fecha o pop-up automaticamente depois de 3 segundos
     setTimeout(() => {
       this.mensagemSucesso = '';
     }, 3000);
@@ -62,5 +62,13 @@ export class CadastroComponent {
   validarEmail(email: string): boolean {
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     return regex.test(email.trim());
+  }
+
+  abrirTermos() {
+    this.mostrarTermos = true;
+  }
+
+  fecharTermos() {
+    this.mostrarTermos = false;
   }
 }

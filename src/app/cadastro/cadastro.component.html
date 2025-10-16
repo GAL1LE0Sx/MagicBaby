@@ -42,6 +42,17 @@
                  placeholder="Repita sua senha">
         </div>
 
+        <!-- Termo de Aceite LGPD -->
+        <div class="flex items-start gap-2 mt-4">
+          <input type="checkbox" id="aceiteLGPD" name="aceiteLGPD" [(ngModel)]="aceiteLGPD" required>
+          <label for="aceiteLGPD" class="text-gray-700 text-sm leading-snug">
+            Li e aceito os 
+            <button type="button" (click)="abrirTermos()" class="text-pink-600 underline hover:text-pink-700">
+              Termos de Uso e Política de Privacidade (LGPD)
+            </button>.
+          </label>
+        </div>
+
         <!-- Mensagem de erro -->
         <p *ngIf="mensagemErro" class="text-red-500 text-sm mt-1">{{ mensagemErro }}</p>
 
@@ -50,7 +61,6 @@
                 class="w-full bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 font-semibold transition-all duration-300">
           Cadastrar
         </button>
-
       </form>
     </div>
   </div>
@@ -64,3 +74,39 @@
   </div>
 </div>
 
+<!-- ✅ Modal de Termos e LGPD -->
+<div *ngIf="mostrarTermos" (click)="fecharTermos()"
+     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-4">
+  <div (click)="$event.stopPropagation()" class="bg-white max-w-2xl rounded-xl shadow-lg p-8 overflow-y-auto max-h-[80vh] animate-fadeIn">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4 text-center">Termos de Uso e Política de Privacidade (LGPD)</h2>
+
+    <div class="text-gray-700 text-sm space-y-3">
+      <p>Ao utilizar a plataforma MagicBaby, você concorda com os seguintes Termos de Uso e com a Política de Privacidade conforme a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados - LGPD).</p>
+
+      <h3 class="font-semibold text-pink-500">1. Coleta de Dados</h3>
+      <p>Coletamos apenas os dados necessários para o funcionamento adequado da plataforma, como nome, e-mail e preferências de navegação, sempre mediante o seu consentimento.</p>
+
+      <h3 class="font-semibold text-pink-500">2. Uso das Informações</h3>
+      <p>Os dados informados são utilizados exclusivamente para criar sua conta, melhorar sua experiência e personalizar recomendações dentro da plataforma.</p>
+
+      <h3 class="font-semibold text-pink-500">3. Compartilhamento de Dados</h3>
+      <p>Seus dados não são vendidos nem compartilhados com terceiros, exceto quando exigido por lei ou mediante autorização expressa do titular.</p>
+
+      <h3 class="font-semibold text-pink-500">4. Direitos do Usuário</h3>
+      <p>Você tem o direito de acessar, corrigir, excluir ou solicitar cópia de seus dados pessoais a qualquer momento através dos canais de atendimento da plataforma.</p>
+
+      <h3 class="font-semibold text-pink-500">5. Segurança</h3>
+      <p>Adotamos medidas técnicas e administrativas para garantir a proteção de seus dados contra acessos não autorizados, perda ou alteração indevida.</p>
+
+      <h3 class="font-semibold text-pink-500">6. Consentimento</h3>
+      <p>Ao marcar o campo de aceite e prosseguir com o cadastro, você confirma que leu e concorda com todos os termos e políticas aqui apresentados.</p>
+    </div>
+
+    <div class="text-center mt-6">
+      <button (click)="fecharTermos()"
+              class="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition">
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>
